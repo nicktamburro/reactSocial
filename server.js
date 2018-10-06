@@ -1,10 +1,13 @@
+//importing the node modules we need
 const express = require('express');
 const mongoose = require('mongoose');
 
+//shortcuts for the api routes
 const users = require('./routes/api/users.js');
 const profile = require('./routes/api/profile.js');
 const posts = require('./routes/api/posts.js');
 
+//app
 const app = express();
 
 //DB config
