@@ -2,3 +2,4 @@
 /config
 package-lock.json
 keys.js
+./config/keys.js
