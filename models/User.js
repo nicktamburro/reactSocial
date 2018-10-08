@@ -17,15 +17,10 @@ const userSchema = new Schema({
     },
     avatar: {
         type: String,
-        required: true
     },
     date: {
         type: Date,
         default: Date.now
-    },
-    instruments: {
-        type: String,
-        required: true
     },
 });
 
