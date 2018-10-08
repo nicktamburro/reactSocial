@@ -9,4 +9,11 @@ router.get('/test', (req, res) => {
     res.json({msg: "users works"})
 });
 
+//@ROUTE GET api/users/register
+//@DESC registers user
+//@ACCESS public
+router.post('/register', (req, res) => {
+    
+})
+
 module.exports = router;
