@@ -22,7 +22,11 @@ const userSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    instruments: {
+        type: String,
+        required: true
+    },
 });
 
 module.exports = User = mongoose.model('users', UserSchema);
