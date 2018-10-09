@@ -5,19 +5,38 @@ const bcrypt = require('bcryptjs');
 const router = express.Router();
 
 //load User model
-const user = require('../../models/User');
+const User = require('../../models/User');
 
 //@ROUTE GET api/users/test
-//@DESC tests route
+//@DESC tests route 
 //@ACCESS public
 router.get('/test', (req, res) => {
     res.json({msg: "users works"})
 });
 
+//test, because something is weird down below
+router.post('/test2', (req, res) => {
+    res.json({msg: "this works"})
+});
 //@ROUTE GET api/users/register
 //@DESC registers user
 //@ACCESS public
-router.post('/register', (req, res) => {
+
+//testing a simpler version
+//working... kind of
+router.post('/register2', (req, res) => {
+    const newUser = new User({
+                    name: req.body.name,
+                    email: req.body.email,
+                    password: req.body.password
+                });
+
+                newUser.save()
+                    .then(res.json(newUser));
+})
+
+
+/*router.post('/register', (req, res) =>  {
     User.findOne({ email: req.body.email })
         .then(user =>{
             if(user){
@@ -26,8 +45,8 @@ router.post('/register', (req, res) => {
 
                 const avatar = gravatar.url(req.body.email, {
                     s: '200', //size
-                    rating: 'pg', 
-                    default: 'mm'
+                    r: 'pg', 
+                    d: 'mm'
                 });
 
                 const newUser = new User({
@@ -49,6 +68,6 @@ router.post('/register', (req, res) => {
                     });
                 }
             });  
-});
+});*/
 
 module.exports = router;
