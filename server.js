@@ -12,8 +12,12 @@ const posts = require('./routes/api/posts.js');
 const app = express();
 
 //bodyParser middleware
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+//adding this to test it
+/*app.use(express.json());       // to support JSON-encoded bodies
+app.use(express.urlencoded());*/
 
 //DB config
 const db = require('./config/keys').mongoURI;
