@@ -25,12 +25,16 @@ router.post('/test2', (req, res) => {
 //testing a simpler version
 //working... kind of
 router.post('/register2', (req, res) => {
-    /*User.findOne({ email: req.body.email })
+
+/*SO THIS IS WHERE THE PROBLEM IS: probably not connecting to Mongo properly to run findOne
+//-------------------------------------------------------------------------------
+    User.findOne({ email: req.body.email })
         .then(user =>{
             if(user){
                 return res.status(400).json({email: 'Email already exists'});
             } else {*/
     //console.log(req.body);
+//----------------------------------------------------------------------------------
     const newUser = new User({
                     name: req.body.name,
                     email: req.body.email,
@@ -43,13 +47,15 @@ router.post('/register2', (req, res) => {
                         newUser.password = hash;
                 newUser.save(console.log("saved"))
                     .then(res.json(newUser));
-                })
+    
+                        
+                    
+                    });
             });
         });
-    //});
-//});
-
-
+        
+             
+                
 router.post('/register', (req, res) =>  {
     User.findOne({ email: req.body.email })
         .then(user =>{
