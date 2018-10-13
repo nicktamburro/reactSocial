@@ -25,7 +25,7 @@ router.post('/test2', (req, res) => {
 //testing a simpler version
 //working... kind of
 router.post('/register2', (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     const newUser = new User({
                     name: req.body.name,
                     email: req.body.email,
@@ -37,7 +37,7 @@ router.post('/register2', (req, res) => {
 })
 
 
-/*router.post('/register', (req, res) =>  {
+router.post('/register', (req, res) =>  {
     User.findOne({ email: req.body.email })
         .then(user =>{
             if(user){
@@ -69,6 +69,6 @@ router.post('/register2', (req, res) => {
                     });
                 }
             });  
-});*/
+});
 
 module.exports = router;
