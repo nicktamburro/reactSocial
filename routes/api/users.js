@@ -26,14 +26,14 @@ router.post('/test2', (req, res) => {
 //working... kind of
 router.post('/register2', (req, res) => {
 
-/*SO THIS IS WHERE THE PROBLEM IS: probably not connecting to Mongo properly to run findOne
+//SO THIS IS WHERE THE PROBLEM IS: probably not connecting to Mongo properly to run findOne
 //-------------------------------------------------------------------------------
-    User.findOne({ email: req.body.email })
+  User.findOne({ email: req.body.email })
         .then(user =>{
             if(user){
-                return res.status(400).json({email: 'Email already exists'});
+               return res.status(400).json({email: 'Email already exists'});
             } else {*/
-    //console.log(req.body);
+    console.log(req.body);
 //----------------------------------------------------------------------------------
     const newUser = new User({
                     name: req.body.name,
@@ -53,7 +53,7 @@ router.post('/register2', (req, res) => {
                     });
             });
         });
-        
+//})
              
                 
 router.post('/register', (req, res) =>  {
