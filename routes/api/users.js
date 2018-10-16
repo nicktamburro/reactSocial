@@ -46,6 +46,7 @@ router.post('/register2', (req, res) => {
                     console.log("step one");
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if(err) throw err;
+                        console.log("step two");
                         newUser.password = hash;
                 newUser.save(console.log("saved"))
                     .then(res.json(newUser));
