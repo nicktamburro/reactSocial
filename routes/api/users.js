@@ -43,10 +43,10 @@ router.post('/register2', (req, res) => {
                     password: req.body.password
                 });
             bcrypt.genSalt(10, (err, salt) => {
-                    console.log("step one");
+                    console.log("step one successful");
                     bcrypt.hash(newUser.password, salt, (err, hash) => {
                         if(err) throw err;
-                        console.log("step two");
+                        console.log("step two successful");
                         newUser.password = hash;
                 newUser.save(console.log("saved"))
                     .then(res.json(newUser));
