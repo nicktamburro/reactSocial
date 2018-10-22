@@ -32,6 +32,7 @@ router.post('/register2', (req, res) => {
         .then(user =>{
             if(user){
                 console.log(user);
+                //so we have to put things in the database to test a duplicate first,
                return res.status(400).json({email: 'Email already exists'});
             } else {*/
                 console.log("no user found");
